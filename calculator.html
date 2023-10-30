@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(#97EBF4,#C9F6FF);
+            
+
+
+        }
+        table{
+            width: 250px;
+            height:400px ;
+            margin: 10px;
+        border: 3px solid red;
+        background-color: white;
+
+            
+        }
+        td{
+            
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+            font-size: 20px;
+            border-color: #ff4500;
+
+            
+        }
+        [type="button"]{
+            width: 40px;
+            height: 40px;
+            border-radius: 45%;
+            background-color:gainsboro;
+            border-color:black;
+            color: black;
+        
+        }
+        .btn{
+            background-color:#ff4500;
+            color: wheat;
+            border-color:#ff4500 ;
+            
+        }
+        .btn1{
+            background-color:#f26bbb;
+            color: #ff007f;
+            border-color: #f26bbb;
+        }
+        .btn2{
+            background-color:#03c04a;
+            border-color: #03c04a;
+            color: white;
+        }
+        .tdf{
+            position: relative;
+        }
+        .btn3{
+            border-radius: 45%;
+        
+            height: 100%;
+            width: 100%;
+        }
+        .text{
+            width: 90%;
+            height: 30px;
+            border-bottom-color:  black;
+            border-top-color: black;
+            border-right-color: black;
+        }
+        
+        
+
+
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" placeholder="Calculate" id="Equation" ></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="clear"  class="btn1" onclick="clearone()"></td>
+            <td><input type="button" value="AC" onclick="clearall()" ></td>
+            <td><input type="button" value="/" class=" in" ></td>
+            <td><input type="button" value="%" class="btn in"></td>
+    </tr>
+    <tr>
+            <td><input type="button" value="8" class="in"></td>
+            <td><input type="button" value="7" class="in"></td>
+            <td><input type="button" value="9" class="in"></td>
+            <td><input type="button" value="x" class="btn in"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" class="in"></td>
+        <td><input type="button" value="5" class="in"></td>
+        <td><input type="button" value="6" class="in"></td>
+        <td><input type="button" value="-" class="btn in"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="1" class="in"></td>
+        <td><input type="button" value="2" class="in"></td>
+        <td><input type="button" value="3" class="in"></td>
+        <td><input type="button" value="+" class="btn in"></td>
+    </tr>
+    <tr>
+        <td colspan="2" class="tdf"><input type="button" value="0" class="btn3 in"></td>
+        <td><input type="button" value="." class="in"></td>
+        <td><input type="button" value="=" class="btn2 " onclick="solve()"></td>
+    </tr>
+    </table>
+
+    <script>
+        let eq=document.getElementById("Equation");
+        let inputs=document.querySelectorAll("input.in");
+        console.log(inputs.length);
+        inputs.forEach(x=>{
+            console.log(x);
+            x.addEventListener("click",()=>{
+                eq.value += x.value;
+            })
+        })
+        function clearall(){
+            eq.value = "";
+
+        }
+        function solve(){
+            eq.value = eval(eq.value);
+        }
+        function  clearone(){
+            eq.value = eq.value.slice(0,eq.value.length-1);
+        }
+    </script>
+    
+</body>
+</html>
